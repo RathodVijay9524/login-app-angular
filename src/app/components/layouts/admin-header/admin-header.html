@@ -1,1 +1,45 @@
-<p>admin-header works!</p>
+<!-- Admin Sidebar -->
+<div class="sidebar bg-dark text-light vh-100 p-3" style="width: 250px;">
+  <div class="sidebar-header mb-4">
+    <h4 class="text-center">Admin Panel</h4>
+  </div>
+  
+  <nav class="nav flex-column">
+    <a class="nav-link active text-light" routerLink="/admin/dashboard">
+      <i class="fas fa-tachometer-alt me-2"></i>Dashboard
+    </a>
+    <a class="nav-link text-light" routerLink="/admin/users">
+      <i class="fas fa-users me-2"></i>Users
+    </a>
+    <a class="nav-link text-light" routerLink="/admin/settings">
+      <i class="fas fa-cog me-2"></i>Settings
+    </a>
+    
+    <div class="accordion accordion-flush" id="adminAccordion">
+      <div class="accordion-item bg-dark">
+        <h2 class="accordion-header">
+          <button class="accordion-button collapsed bg-dark text-light" type="button" data-bs-toggle="collapse" data-bs-target="#managementCollapse">
+            <i class="fas fa-tools me-2"></i>Management
+          </button>
+        </h2>
+        <div id="managementCollapse" class="accordion-collapse collapse" data-bs-parent="#adminAccordion">
+          <div class="accordion-body bg-dark">
+            <a class="nav-link text-light" routerLink="/admin/roles">Roles</a>
+            <a class="nav-link text-light" routerLink="/admin/permissions">Permissions</a>
+            <hr class="my-2 text-light">
+            <a class="nav-link text-light" routerLink="/admin/reports">Reports</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+  
+  <div class="sidebar-footer mt-auto pt-3">
+    <div class="text-center mb-2">
+      <small class="text-light">Welcome, Admin</small>
+    </div>
+    <button class="btn btn-outline-light btn-sm w-100" routerLink="/logout">
+      <i class="fas fa-sign-out-alt me-2"></i>Logout
+    </button>
+  </div>
+</div>

@@ -1,4 +1,78 @@
 
 
 
-<router-outlet />
+<!-- Main Static Navbar for Public Pages -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+  <div class="container-fluid">
+    <a class="navbar-brand fw-bold" href="#">MyApp Portal</a>
+    
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar" 
+            aria-controls="mainNavbar" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    
+    <div class="collapse navbar-collapse" id="mainNavbar">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" routerLink="/">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/about">About</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/services">Services</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/contact">Contact</a>
+        </li>
+      </ul>
+      
+      <div class="d-flex">
+        <a class="btn btn-outline-light me-2" routerLink="/login">Login</a>
+        <a class="btn btn-light" routerLink="/register">Register</a>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<!-- Main Content Area -->
+<div class="container-fluid">
+  <router-outlet />
+</div>
+
+<!-- Static Footer -->
+<footer class="bg-dark text-light py-5 mt-5">
+  <div class="container">
+    <div class="row">
+      <!-- Company Info -->
+      <div class="col-md-4 mb-4">
+        <h5 class="text-uppercase fw-bold mb-3">MyApp Portal</h5>
+        <p class="mb-2">Your trusted platform for seamless user experience and professional services.</p>
+        <div class="social-links">
+          <a href="#" class="text-light me-3">Facebook</a>
+          <a href="#" class="text-light me-3">Twitter</a>
+          <a href="#" class="text-light me-3">LinkedIn</a>
+          <a href="#" class="text-light">Instagram</a>
+        </div>
+      </div>
+
+      <!-- Quick Links -->
+      <div class="col-md-2 mb-4">
+        <h6 class="text-uppercase fw-bold mb-3">Quick Links</h6>
+        <ul class="list-unstyled">
+          <li class="mb-2"><a href="#" class="text-light text-decoration-none">Home</a></li>
+          <li class="mb-2"><a href="#" class="text-light text-decoration-none">About Us</a></li>
+          <li class="mb-2"><a href="#" class="text-light text-decoration-none">Services</a></li>
+          <li class="mb-2"><a href="#" class="text-light text-decoration-none">Contact</a></li>
+        </ul>
+      </div>
+
+      <!-- Services -->
+      <div class="col-md-2 mb-4">
+        <h6 class="text-uppercase fw-bold mb-3">Services</h6>
+        <ul class="list-unstyled">
+          <li class="mb-2"><a href="#" class="text-light text-decoration-none">User Management</a></li>
+          <li class="mb-2"><a href="#" class="text-light text-decoration-none">Admin Dashboard</a></li>
+          <li class="mb-2"><a href="#" class="text-light text-decoration-none">Worker Portal</a></li>
+          <li class="mb-2"><a href="#" class="text-light text-decoration-none">Support</a></li>
+        </ul>
