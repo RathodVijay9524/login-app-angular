@@ -7,28 +7,51 @@ import { Login } from './components/login/login';
 import { RoleGuard } from './guards/role-guard';
 import { Admin } from './components/admin/admin';
 import { Unauthorized } from './components/unauthorized/unauthorized';
+import { AdminLayout } from './components/layouts/admin-layout/admin-layout';
+import { UserLayout } from './components/layouts/user-layout/user-layout';
+import { WorkerLayout } from './components/layouts/worker-layout/worker-layout';
 
 export const routes: Routes = [
-    {path:'' , component:Home},
+    { path: '', component: Home },
+    // 🔹 Admin layout + route
     {
-        path: 'admin',
-        component: Admin,
-        canActivate: [RoleGuard],
-        data: { roles: ['ROLE_ADMIN'] }
+        path: '',
+        component: AdminLayout,
+        canActivateChild: [RoleGuard],
+        children: [
+          {
+            path: 'admin',
+            component: Admin,
+            data: { roles: ['ROLE_ADMIN'] } // ✅ Must be here
+          }
+        ]
       },
       {
-        path: 'user',
-        component: User,
-        canActivate: [RoleGuard],
-        data: { roles: ['ROLE_NORMAL'] }
+        path: '',
+        component: UserLayout,
+        canActivateChild: [RoleGuard],
+        children: [
+          {
+            path: 'user',
+            component: User,
+            data: { roles: ['ROLE_NORMAL'] } // ✅ Here
+          }
+        ]
       },
       {
-        path: 'worker',
-        component: Worker,
-        canActivate: [RoleGuard],
-        data: { roles: ['ROLE_WORKER'] }
+        path: '',
+        component: WorkerLayout,
+        canActivateChild: [RoleGuard],
+        children: [
+          {
+            path: 'worker',
+            component: Worker,
+            data: { roles: ['ROLE_WORKER'] } // ✅ Here
+          }
+        ]
       },
-    {path: 'login', component:Login},
-    {path: 'unauthorized', component:Unauthorized},
-    {path: '**', component:NotFound}
+      
+    { path: 'login', component: Login },
+    { path: 'unauthorized', component: Unauthorized },
+    { path: '**', component: NotFound }
 ];

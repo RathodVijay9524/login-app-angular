@@ -121,6 +121,7 @@ export class AuthService {
     return user.roles ? user.roles.map((r: any) => r.name) : [];
   }
   
+  
 
   hasRole(role: string): boolean {
     const user = this.getUser();
