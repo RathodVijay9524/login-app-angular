@@ -1,0 +1,15 @@
+
+
+<nav *ngIf="isLoggedIn()">
+    <p>Welcome, {{ user()?.username }}</p>
+    <p>Welcome, {{ user()?.name }}</p>
+    <p>Email: {{ user()?.email }}</p>
+    <ul>
+      <li *ngFor="let role of user()?.roles">{{ role.name }}</li>
+    </ul>
+
+    
+    <button (click)="logout()">Logout</button>
+  </nav>
+  
+  
